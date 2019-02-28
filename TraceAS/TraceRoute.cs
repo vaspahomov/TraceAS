@@ -7,14 +7,12 @@ namespace TraceAS
 {
     public class TraceRoute
     {
-        public static IEnumerable<IPAddress> GetTraceRoute(string hostname)
+        public static IEnumerable<IPAddress> GetTraceRoute(
+            string hostname, 
+            int maxTTL = 30, 
+            string data = "", 
+            int timeout = 10000)
         {
-            // following are the defaults for the "traceroute" command in unix.
-            const int timeout = 10000;
-            const int maxTTL = 30;
-            const int bufferSize = 32;
-            const string data = "";
-
             var buffer = Encoding.ASCII.GetBytes(data);
             var pinger = new Ping();
 
