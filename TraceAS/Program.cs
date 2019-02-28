@@ -11,7 +11,7 @@ namespace TraceAS
             Parser.Default.ParseArguments<Options>(args)
                 .WithParsed(o =>
                 {
-                    foreach (var ip in TraceRoute.GetTraceRoute(o.Addres, o.MaxTtl, o.Data, o.Timeout))
+                    foreach (var ip in TraceRoute.GetTraceRoute(o.Address, o.MaxTtl, o.Data, o.Timeout))
                     {
                         var ipInfoJson = AdditionalInformationLoader.GetInformation(ip.ToString());
                         var ipInfo = JsonConvert.DeserializeObject<IpInfo>(ipInfoJson);
@@ -23,7 +23,7 @@ namespace TraceAS
         private class Options
         {
             [Value(1, MetaName = "address", HelpText = "Ip address or domain name of the host", Required = true)]
-            public string Addres { get; set; }
+            public string Address { get; set; }
 
             [Option("ttl", HelpText = "Max TTL", Default = 30)]
             public int MaxTtl { get; set; } 
