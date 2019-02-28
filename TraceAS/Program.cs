@@ -15,7 +15,7 @@ namespace TraceAS
                     {
                         var ipInfoJson = AdditionalInformationLoader.GetInformation(ip.ToString());
                         var ipInfo = JsonConvert.DeserializeObject<IpInfo>(ipInfoJson);
-                        Console.WriteLine(ipInfo);
+                        Console.WriteLine(ipInfo.PrintInfo());
                     }
                 });
         }

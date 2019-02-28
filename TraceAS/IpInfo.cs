@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Linq;
+using System.Reflection;
+using Newtonsoft.Json;
 
 namespace TraceAS
 {
@@ -33,6 +35,21 @@ namespace TraceAS
                    $"Postal: {Postal}\n" +
                    $"Phone: {Phone}\n" +
                    $"Organization: {Organization}\n";
+        }
+
+        public string PrintInfo()
+        {
+            var result = string.Empty;
+
+            GetType().GetTypeInfo()
+                .DeclaredProperties
+                .Where(x => x.GetValue(this) != null)
+                .Select(x => $"{x.Name}: {x.GetValue(this)}")
+                .ToList()
+                .ForEach(x => result += x);
+//                .Select(item => result += item + "\n");
+
+            return result;
         }
     }
 }
