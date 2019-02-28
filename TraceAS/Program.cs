@@ -26,13 +26,13 @@ namespace TraceAS
             public string Address { get; set; }
 
             [Option("ttl", HelpText = "Max TTL", Default = 30)]
-            public int MaxTtl { get; set; } 
+            public int MaxTtl { get; set; }
 
             [Option("data", HelpText = "Payload of arp request", Default = "")]
-            public string Data { get; set; } 
+            public string Data { get; set; }
 
             [Option("timeout ", HelpText = "Timeout in milliseconds", Default = 10000)]
-            public int Timeout { get; set; } 
+            public int Timeout { get; set; }
         }
     }
 }

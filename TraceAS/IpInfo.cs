@@ -19,8 +19,8 @@ namespace TraceAS
         [JsonProperty("phone")] public string Phone { get; set; }
 
         [JsonProperty("org")] public string Organization { get; set; }
-            
-        [JsonProperty("country")] public string Country{ get; set; }
+
+        [JsonProperty("country")] public string Country { get; set; }
 
         public override string ToString()
         {

@@ -8,9 +8,9 @@ namespace TraceAS
     public class TraceRoute
     {
         public static IEnumerable<IPAddress> GetTraceRoute(
-            string hostname, 
-            int maxTTL = 30, 
-            string data = "", 
+            string hostname,
+            int maxTTL = 30,
+            string data = "",
             int timeout = 10000)
         {
             var buffer = Encoding.ASCII.GetBytes(data);
